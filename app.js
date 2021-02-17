@@ -22,12 +22,23 @@ app.get("/", function(req, res){
 
 app.get('/about', function(req, res){
   res.render('about', {aboutWords: aboutContent});
-})
+});
 
 app.get('/contact', function(req, res){
   res.render('contact', {contactWords: contactContent})
 });
 
+app.get('/compose', function(req, res){
+  res.render('compose')
+})
+
+app.post("/compose", function(req, res){
+  let post = {
+    title: req.body.composeName,
+    body: req.body.composeWords
+  };
+  console.log(post);
+})
 
 
 
